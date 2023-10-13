@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+body{
+    background-color: #19082e;
+    /* background-color: #3b0764; */
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.overlay{
+    opacity: 0;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+
+.overlay:hover{
+    opacity: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.arrow{
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
 }
 
-.App-link {
-  color: #61dafb;
+.arrow:hover{
+   color: #59ec85;
+   border-color:#59ec85 ,
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.icon{
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+}
+
+.icon:hover{
+   color: #59ec85;
+}
+
+.footer-link{
+  cursor: pointer;  
+}
+
+.footer-link:hover{
+
+ color: #59ec85;
+ text-decoration: underline;
+}
+
+.link:hover{
+  text-decoration: underline !important;
+}
+
+
+
+
+/* custom fonts */
+
+@font-face {
+    font-family: roboto;
+    src: url(../public/fonts/Roboto/Roboto-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: dela;
+    src: url(../public/fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf);
+    font-weight: normal;
+}
+
+
+/* scroll bar styles  */
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #060015;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(89, 236, 133,.8);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #59ec85;
 }
