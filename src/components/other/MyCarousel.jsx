@@ -7,10 +7,9 @@ import PosterCard from "../cards/PosterCard";
 import { MoviesContext } from "../../contexts/MoviesContext";
 import { v4 as uuidv4 } from "uuid";
 
-
-export default function MyCarousel({movies}) {
+export default function MyCarousel({ movies }) {
   const theme = useTheme();
- 
+
   const [amount, setAmount] = useState(0);
   const landscapePosters = [
     "https://aworldoffilm.files.wordpress.com/2014/06/wall2.jpg",
@@ -53,10 +52,8 @@ export default function MyCarousel({movies}) {
     }, 4000);
   }
 
- 
-
   useEffect(() => {
-    // autoPlay()
+    // autoPlay();
   }, [amount]);
 
   useEffect(() => {
@@ -104,7 +101,7 @@ export default function MyCarousel({movies}) {
           movies.map((movie, index) => {
             return (
               <div
-                key={movie.id}
+                key={movie.rank}
                 style={{
                   transition: "all .5s",
                   transform: `translate(${amount}%,0)`,
@@ -115,12 +112,7 @@ export default function MyCarousel({movies}) {
                   alt=""
                   style={{ height: "100%", aspectRatio: "16/9" }}
                 />
-                <PosterCard
-                  posterImage={movie.image}
-                  rating={movie.rating}
-                  movieTitle={movie.title}
-                  posterID={movie.id}
-                />
+                <PosterCard movie={movie} />
               </div>
             );
           })}

@@ -9,39 +9,16 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Rating from "@mui/material/Rating";
 import { green } from "@mui/material/colors";
 import axios from "axios";
+import { Link } from "react-router-dom";
   
-export default function PosterCard({posterImage,rating,movieTitle,posterID}) {
+export default function PosterCard({movie}) {
 
 //  const image ="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,1,380,562_.jpg";
-const image = posterImage
-const [trailer,setTrailer]=React.useState("")
+
+
   
   
  
-  
-  async function getTrailer(id)
-  {
-   const options = {
-     method: "GET",
-     url: `https://imdb-top-100-movies.p.rapidapi.com/${id}`,
-     headers: {
-       "X-RapidAPI-Key": "65e2968530mshf9bcb301aced9e3p1111c6jsn1a36b24d55b4",
-       "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
-     },
-   };
-
-   try {
-     const response = await axios.request(options);
-   setTrailer(response.data.trailer)
-   } catch (error) {
-     console.error(error);
-   }
-  }
-
-
-  React.useEffect(() => {
-    getTrailer(posterID);
-  }, [posterID]);
   
 
     return (
@@ -73,7 +50,7 @@ const [trailer,setTrailer]=React.useState("")
             }}
           >
             {" "}
-            <img src={image} alt="" style={{ height: "80%" }} />
+            <img src={movie.big_image} alt="" style={{ height: "80%" }} />
           </div>
 
           <div
@@ -94,7 +71,7 @@ const [trailer,setTrailer]=React.useState("")
                 color: "#cfffdd",
               }}
             >
-              {movieTitle}
+              {movie.title}
             </Typography>
             <Typography
               sx={{
@@ -110,7 +87,7 @@ const [trailer,setTrailer]=React.useState("")
                 fontWeight: "bold",
               }}
             >
-              ⭐{rating}
+              ⭐{movie.rating}
             </Typography>
             {/* <Rating name="read-only" value={rating} readOnly /> */}
             <div
@@ -120,7 +97,7 @@ const [trailer,setTrailer]=React.useState("")
                 marginLeft: "-1rem",
               }}
             >
-              <a href={trailer} target="blank">
+              <Link to={movie.trailer} target="_blank">
                 <IconButton className="arrow" sx={{ color: "white" }}>
                   <PlayCircleOutlineIcon
                     sx={{ fontSize: { md: "5rem", xs: "2rem" } }}
@@ -134,7 +111,7 @@ const [trailer,setTrailer]=React.useState("")
                     watch the trailer
                   </Typography>
                 </IconButton>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

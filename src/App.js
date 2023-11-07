@@ -1,23 +1,26 @@
-import { Container } from "@mui/material";
 import "./App.css";
-// import Example from './components/movies/Example';
-
-
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import axios from 'axios'
-import { MoviesContext } from "./contexts/MoviesContext";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Catgs from "./pages/Catgs";
 import MainLayout from "./layouts/MainLayout";
+import WatchlistPage from "./pages/WatchlistPage";
 
+import FullMovies from "./pages/FullMovies";
+import Top100Movies from "./pages/Top100Movies";
+import GetflexMega from "./pages/GetflexMega";
+import HelpPage from "./pages/HelpPage";
 
-
-
-
+import Top100Series from "./pages/Top100Series";
+import SeriesCatgs from "./pages/SeriesCatgs";
+import TrailerScreen from "./components/other/TrailerScreen";
+import LatestTrailers from "./pages/LatestTrailers";
+import WhatToWatchPage from "./pages/WhatToWatchPage";
+import WatchSomeVideos from "./pages/WatchSomeVideos";
+import GetFlexApp from "./pages/GetFlexApp";
 
 const theme = createTheme({
   pallete: {
@@ -43,47 +46,41 @@ const theme = createTheme({
   },
 });
 
-function App()
-{
-  const [movies,setMovies]=useState([])
+function App() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const trailerKey = queryParams.get("watchtrailer");
 
-const options = {
-  method: "GET",
-  url: "https://imdb-top-100-movies.p.rapidapi.com/",
-  headers: {
-    "X-RapidAPI-Key": "65e2968530mshf9bcb301aced9e3p1111c6jsn1a36b24d55b4",
-    "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
-  },
-};
-  
-  async function getMovies()
-  {
-        try {
-          const response = await axios.request(options);
-          setMovies(response.data)
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
-  }
-
-  useEffect(() =>
-  {
-    console.log("from api")
-getMovies();
-  },[])
+  useEffect(() => {
+    if (localStorage.getItem("movies")) {
+      
+    } else {
+      localStorage.setItem("movies", "[]");
+    }
+  }, []);
 
   return (
     <>
       <ThemeProvider theme={theme}>
-        <MoviesContext.Provider value={movies}>
-          <Routes>
-            <Route path="/" element={<MainLayout />}>
-              <Route path="" element={<Home />}></Route>
-              <Route path="categories" element={<Catgs />}></Route>
-            </Route>
-          </Routes>
-        </MoviesContext.Provider>
+        <TrailerScreen trailerKey={trailerKey} />
+
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="" element={<Home />}></Route>
+            <Route path="categories" element={<Catgs />} />
+            <Route path="seriescategories" element={<SeriesCatgs />} />
+            <Route path="watchlist" element={<WatchlistPage />} />
+            <Route path="movie" element={<FullMovies />} />
+            <Route path="top100" element={<Top100Movies />} />
+            <Route path="top100series" element={<Top100Series />} />
+            <Route path="getflexapp" element={<GetFlexApp />} />
+            <Route path="getflexmega" element={<GetflexMega />} />
+            <Route path="help" element={<HelpPage />} />
+            <Route path="latesttrailers" element={<LatestTrailers />} />
+            <Route path="whattowatch" element={<WhatToWatchPage />} />
+            <Route path="watchsomevideos" element={<WatchSomeVideos />} />
+          </Route>
+        </Routes>
       </ThemeProvider>
     </>
   );

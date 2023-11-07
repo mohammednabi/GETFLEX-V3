@@ -1,15 +1,22 @@
 import React from "react";
 import { useTheme } from "@emotion/react";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 
 // icons
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Link } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 export default function MainFotter() {
   const theme = useTheme();
+  const facebookLink =
+    "https://www.facebook.com/mohammed.nabil.1042/?viewas=&should_open_composer=false&show_switched_toast=false&show_invite_to_follow=false&show_switched_tooltip=false&show_podcast_settings=false&show_community_review_changes=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true&locale=ar_AR";
+
+  const githubLink = "https://github.com/mohammednabi";
+  const linkedInLink = "https://www.linkedin.com/in/mohammed-nabil-790b951b4/";
 
   return (
     <>
@@ -18,7 +25,7 @@ export default function MainFotter() {
           width: "100%",
           backgroundColor: theme.pallete.primary.second,
           color: "white",
-          marginTop: "1rem",
+          // marginTop: "1rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -30,8 +37,7 @@ export default function MainFotter() {
           backgroundImage: "url(/imgs/8084126_1155.svg)",
           backgroundSize: "cover",
           backgroundBlendMode: "soft-light",
-          
-        
+
           boxShadow: " 0px -5px 5px 0px #120620",
         }}
       >
@@ -41,31 +47,35 @@ export default function MainFotter() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "1rem",
+            gap: "1.5rem",
             flexWrap: "wrap",
           }}
         >
-          <IconButton>
-            <YouTubeIcon
+          <Link to={facebookLink} target="blank">
+            {/* <YouTubeIcon
+              className="icon"
+              sx={{ fontSize: "2.5rem", color: "white" }}
+            /> */}
+            <FacebookIcon
               className="icon"
               sx={{ fontSize: "2.5rem", color: "white" }}
             />
-          </IconButton>
-          <IconButton>
+          </Link>
+          <Link to={githubLink} target="blank">
             <GitHubIcon
               className="icon"
               sx={{ fontSize: "2.5rem", color: "white" }}
             />
-          </IconButton>
+          </Link>
           {/* <IconButton>
             <FacebookIcon  sx={{ fontSize: "2.5rem", color: "white" }} />
           </IconButton> */}
-          <IconButton>
+          <Link to={linkedInLink} target="blank">
             <LinkedInIcon
               className="icon"
               sx={{ fontSize: "2.5rem", color: "white" }}
             />
-          </IconButton>
+          </Link>
         </Box>
 
         <Box
@@ -78,15 +88,24 @@ export default function MainFotter() {
             alignItems: "center",
           }}
         >
-          <Typography variant="h6" className="footer-link">
-            get GETFLEX App
-          </Typography>
-          <Typography variant="h6" className="footer-link">
-            help
-          </Typography>
-          <Typography variant="h6" className="footer-link">
-            GETFLEX Mega
-          </Typography>
+          <Link className="link footer-link">
+            <Stack direction={"row"} spacing={0.2} alignItems={"center"}>
+              <Link to={"/getflexapp"} className="link">
+                <Typography variant="h6">get GETFLEX App</Typography>
+              </Link>
+              <OpenInNewIcon sx={{ fontSize: "1.5rem" }} />
+            </Stack>
+          </Link>
+          <Link to={"/help"} className="link">
+            <Typography variant="h6" className="footer-link">
+              help
+            </Typography>
+          </Link>
+          <Link to={"/getflexmega"} className="link">
+            <Typography variant="h6" className="footer-link">
+              GETFLEX Mega
+            </Typography>
+          </Link>
         </Box>
         <Box
           sx={{

@@ -1,99 +1,174 @@
-body{
-    background-color: #19082e;
-    /* background-color: #3b0764; */
-    margin: 0;
-    padding: 0;
+body {
+  background-color: #19082e;
+
+  margin: 0;
+  padding: 0;
 }
 
-
-.overlay{
-    opacity: 0;
-    transition: all .5s;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -ms-transition: all .5s;
-    -o-transition: all .5s;
-
-
+.overlay {
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }
 
-
-
-
-.overlay:hover{
-    opacity: 1;
+.overlay:hover {
+  opacity: 1;
+  color: #59ec85;
 }
 
-.arrow{
-    transition: all .5s;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -ms-transition: all .5s;
-    -o-transition: all .5s;
+.arrow {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }
 
-.arrow:hover{
-   color: #59ec85;
-   border-color:#59ec85 ,
+.arrow:hover {
+  color: #59ec85;
+  border-color: #59ec85;
 }
 
-
-
-.icon{
-  transition: all .5s;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  -ms-transition: all .5s;
-  -o-transition: all .5s;
+.icon {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }
 
-.icon:hover{
-   color: #59ec85;
+.icon:hover {
+  color: #59ec85;
 }
 
-.footer-link{
-  cursor: pointer;  
+.footer-link {
+  cursor: pointer;
 }
 
-.footer-link:hover{
-
- color: #59ec85;
- text-decoration: underline;
+.footer-link:hover {
+  color: #59ec85;
+  text-decoration: underline;
 }
 
-.link:hover{
+.link {
+  text-decoration: none !important;
+  color: white;
+}
+
+.link:hover {
   text-decoration: underline !important;
 }
 
+.chipy:hover {
+  color: #59ec85;
+  border-color: #59ec85;
+}
 
+.searchy:focus {
+  background-color: red !important;
+}
 
+.overlay2:hover {
+  color: #59ec85 !important;
+  opacity: 1 !important;
+}
+
+.search-link {
+  text-decoration: none !important;
+  color: white;
+}
+
+.search-link:hover {
+  background-color: rgb(18, 6, 32);
+}
+
+.G-logo {
+  width: 8rem;
+  animation: logo infinite 5s ease-in-out;
+  -webkit-animation: logo infinite 5s ease-in-out;
+}
+
+.selected {
+  /* background-color: rgba(91, 236, 134, 0.444);
+  border-radius: 2rem;
+
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem; */
+}
+
+.chip-selected {
+  color: #59ec85 !important;
+  border-color: #59ec85 !important;
+}
+
+@keyframes logo {
+  0% {
+    transform: rotate(0deg) scale(1);
+    -webkit-transform: rotate(0deg) scale(1);
+    -moz-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    -o-transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(10deg) scale(1.1);
+    -webkit-transform: rotate(10deg) scale(1.1);
+    -moz-transform: rotate(10deg) scale(1.1);
+    -ms-transform: rotate(10deg) scale(1.1);
+    -o-transform: rotate(10deg) scale(1.1);
+  }
+
+  50% {
+    transform: rotate(0deg) scale(1);
+    -webkit-transform: rotate(0deg) scale(1);
+    -moz-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    -o-transform: rotate(0deg) scale(1);
+  }
+  75% {
+    transform: rotate(-10deg) scale(1.1);
+    -webkit-transform: rotate(-10deg) scale(1.1);
+    -moz-transform: rotate(-10deg) scale(1.1);
+    -ms-transform: rotate(-10deg) scale(1.1);
+    -o-transform: rotate(-10deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    -webkit-transform: rotate(0deg) scale(1);
+    -moz-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    -o-transform: rotate(0deg) scale(1);
+  }
+}
 
 /* custom fonts */
 
 @font-face {
-    font-family: roboto;
-    src: url(../public/fonts/Roboto/Roboto-Regular.ttf);
-    font-weight: normal;
+  font-family: roboto;
+  src: url(../public/fonts/Roboto/Roboto-Regular.ttf);
+  font-weight: normal;
 }
 
 @font-face {
-    font-family: dela;
-    src: url(../public/fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf);
-    font-weight: normal;
+  font-family: dela;
+  src: url(../public/fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf);
+  font-weight: normal;
 }
-
 
 /* scroll bar styles  */
 
-
-html{
+html {
   scroll-behavior: smooth;
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
-  height: 2px;
+  height: 0;
 }
 
 /* Track */
@@ -103,7 +178,7 @@ html{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(89, 236, 133,.8);
+  background: rgba(89, 236, 133, 0.8);
 }
 
 /* Handle on hover */
