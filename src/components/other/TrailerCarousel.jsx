@@ -1,19 +1,13 @@
-import {
-  Box,
-  CircularProgress,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
-import axios from "axios";
+import { Box, CircularProgress, IconButton } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 
 // icons
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CarouseItem from "../movies/CarouseItem";
-import { MoviesContext } from "../../contexts/MoviesContext";
+
 import { getNowPlayingMovies } from "../../feutures/api/nowPlayingMovieSlice";
 // == icons ==
 
@@ -21,7 +15,7 @@ export default function TrailerCarousel() {
   const carouselRef = useRef();
   const currentUrl = window.location.href;
   const [amount, setAmount] = useState(0);
-  const [playState, setPlayState] = useState(true);
+  // const [playState, setPlayState] = useState(true);
 
   const nowPlayingMovies = useSelector((state) => {
     return state.nowPlayingMovies.movies;
@@ -50,20 +44,20 @@ export default function TrailerCarousel() {
     }
   }
 
-  function autoPlay(play) {
-    if (!isLoading) {
-      const childrenCount = carouselRef.current.children.length;
-      if (play) {
-        setTimeout(() => {
-          if (amount > -childrenCount + 1) {
-            translateRight();
-          } else {
-            setAmount(0);
-          }
-        }, 4000);
-      }
-    }
-  }
+  // function autoPlay(play) {
+  //   if (!isLoading) {
+  //     const childrenCount = carouselRef.current.children.length;
+  //     if (play) {
+  //       setTimeout(() => {
+  //         if (amount > -childrenCount + 1) {
+  //           translateRight();
+  //         } else {
+  //           setAmount(0);
+  //         }
+  //       }, 4000);
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
     dispatch(getNowPlayingMovies(1));
@@ -98,7 +92,7 @@ export default function TrailerCarousel() {
           sx={{ position: "absolute", left: 0, zIndex: "1" }}
           onClick={() => {
             translateLeft();
-            setPlayState(false);
+            // setPlayState(false);
           }}
         >
           <ArrowBackIosNewIcon
@@ -120,7 +114,7 @@ export default function TrailerCarousel() {
           sx={{ position: "absolute", right: 0, zIndex: "1" }}
           onClick={() => {
             translateRight();
-            setPlayState(false);
+            // setPlayState(false);
           }}
         >
           <ArrowBackIosNewIcon
