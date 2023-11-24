@@ -80,7 +80,13 @@ export default function SmallMoviesSection({ caption, movies, backColor }) {
       {movies && (
         <Stack spacing={2} direction={"row"} sx={{ position: "relative" }}>
           <IconButton
-            sx={{ position: "absolute", top: "30%", left: "0", zIndex: "1" }}
+            sx={{
+              position: "absolute",
+              top: "30%",
+              left: "0",
+              zIndex: "1",
+              display: { md: "initial", xs: "none" },
+            }}
             onClick={handleScrollLeft}
           >
             <ArrowBackIosNewIcon
@@ -134,7 +140,13 @@ export default function SmallMoviesSection({ caption, movies, backColor }) {
             </div>
           </div>
           <IconButton
-            sx={{ position: "absolute", top: "30%", right: "0", zIndex: "1" }}
+            sx={{
+              position: "absolute",
+              top: "30%",
+              right: "0",
+              zIndex: "1",
+              display: { md: "initial", xs: "none" },
+            }}
             onClick={handleScrollRight}
           >
             <ArrowBackIosNewIcon

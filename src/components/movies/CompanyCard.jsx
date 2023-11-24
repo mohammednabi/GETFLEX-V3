@@ -14,11 +14,16 @@ export default function CompanyCard({ logo_path, companyName }) {
           }
           sx={{
             background: "white",
-            width: "5rem",
-            height: "5rem",
+            width: { md: "5rem", xs: "3rem" },
+            height: { md: "5rem", xs: "3rem" },
           }}
         />
-        <Typography variant="h6" sx={{ color: "rgba(255,255,255,.8)" }}>
+        <Typography
+          sx={{
+            color: "rgba(255,255,255,.8)",
+            fontSize: { md: "1.2rem", xs: ".8rem" },
+          }}
+        >
           {companyName}
         </Typography>
       </Stack>

@@ -64,7 +64,6 @@ export default function FullMovies() {
   const similarMovies = useSelector((state) => {
     return state.similar.movies;
   });
-  
 
   // scrolling
   const divRef = useRef();
@@ -106,13 +105,14 @@ export default function FullMovies() {
   // == scrolling ==
 
   const myColor = useMemo(() => {
-    if (movieDetails)
-    {
-       return  movieDetails.vote_average.toFixed(1) > 7.5 ? "#59ec85": movieDetails.vote_average.toFixed(1) > 5 ? "#ede85a" : "#a5112c";
+    if (movieDetails) {
+      return movieDetails.vote_average.toFixed(1) > 7.5
+        ? "#59ec85"
+        : movieDetails.vote_average.toFixed(1) > 5
+        ? "#ede85a"
+        : "#a5112c";
     }
-   
-  }, [movieId,movieDetails]);
-
+  }, [movieId, movieDetails]);
 
   useEffect(() => {
     if (movieId !== null) {
@@ -121,22 +121,22 @@ export default function FullMovies() {
       dispatch(getCast(movieId));
       dispatch(getRecommendations(movieId));
       dispatch(getSimilar(movieId));
-      if(window.screenY !==0  ){
+      if (window.screenY !== 0) {
         divRef.current.scrollTo({
-        left: 0,
-        behavior: "smooth",
-      });
-      castRef.current.scrollTo({
-        left: 0,
-        behavior: "smooth",
-      });
-      similarRef.current.scrollTo({
-        left: 0,
-        behavior: "smooth",
-      });
-     
-      window.scrollTo(0, 0);
-     }
+          left: 0,
+          behavior: "smooth",
+        });
+        castRef.current.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+        similarRef.current.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+
+        window.scrollTo(0, 0);
+      }
     }
   }, [movieId]);
 
@@ -148,10 +148,13 @@ export default function FullMovies() {
           sx={{
             backgroundColor: "#140624",
             minHeight: "calc(100vh - 83px - 221px + 1rem)",
+            padding: ".2rem",
           }}
         >
           {movieDetails ? (
-            <Box sx={{ color: "white", padding: "2rem" }}>
+            <Box
+              sx={{ color: "white", padding: { md: "2rem", xs: "2rem .2rem" } }}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -166,15 +169,23 @@ export default function FullMovies() {
                   alignItems={"center"}
                   sx={{
                     background: { md: "none", xs: "#060015" },
+                    margin: 0,
                     marginBottom: "1rem",
                     width: "100%",
                   }}
                 >
-                  <Grid xs={9} md={11}>
+                  <Grid
+                    container
+                    xs={9}
+                    md={11}
+                    sx={{
+                      justifyContent: { md: "flex-start", xs: "center" },
+                    }}
+                  >
                     <Stack>
                       <Typography
                         sx={{
-                          fontSize: { md: "2.5rem", xs: "1.3rem" },
+                          fontSize: { md: "2.5rem", xs: "1.1rem" },
                           fontWeight: "bold",
                         }}
                       >
@@ -182,17 +193,33 @@ export default function FullMovies() {
                       </Typography>
 
                       <Stack direction={"row"} spacing={5}>
-                        <Typography sx={{ fontSize: "1.5rem", color: "grey" }}>
+                        <Typography
+                          sx={{
+                            fontSize: { md: "1.5rem", xs: ".9rem" },
+                            color: "grey",
+                          }}
+                        >
                           {getMovieDuration(movieDetails.runtime)}
                         </Typography>
                         <Typography
                           variant="h6"
                           sx={{
-                            fontSize: "1.2rem",
+                            fontSize: { md: "1.2rem", xs: ".7rem" },
                             color: "rgba(255,255,255,.8)",
+                            display: { xs: "none", md: "initial" },
                           }}
                         >
                           Puplished In : {movieDetails.release_date}
+                        </Typography>
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontSize: { md: "1.2rem", xs: ".7rem" },
+                            color: "rgba(255,255,255,.8)",
+                            display: { md: "none", xs: "initial" },
+                          }}
+                        >
+                          {movieDetails.release_date}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -213,7 +240,8 @@ export default function FullMovies() {
                       }}
                     >
                       <Box sx={{ width: { md: "4rem", xs: "3rem" } }}>
-                        {movieDetails && movieDetails.vote_average.toFixed(1) > 0 ? (
+                        {movieDetails &&
+                        movieDetails.vote_average.toFixed(1) > 0 ? (
                           <CircularProgressbar
                             value={movieDetails.vote_average.toFixed(1)}
                             maxValue={10}
@@ -259,7 +287,8 @@ export default function FullMovies() {
                           zIndex: 5,
                         }}
                       >
-                        {movieDetails && movieDetails.vote_average.toFixed(1) > 0 ? (
+                        {movieDetails &&
+                        movieDetails.vote_average.toFixed(1) > 0 ? (
                           <CircularProgressbar
                             value={movieDetails.vote_average.toFixed(1)}
                             maxValue={10}
@@ -400,7 +429,14 @@ export default function FullMovies() {
                   )}
                 </Box>
               </Box>
-              <Box sx={{ display: "flex", gap: "1rem", marginTop: ".5rem" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "1rem",
+                  marginTop: ".5rem",
+                }}
+              >
                 {movieDetails.genres.map((g) => (
                   <Link
                     to={`${
@@ -421,7 +457,9 @@ export default function FullMovies() {
               </Box>
               <Stack spacing={1} sx={{ marginTop: "1rem" }}>
                 <Stack spacing={1} sx={{ alignItems: "center" }}>
-                  <Typography variant="h5">{movieDetails.overview}</Typography>
+                  <Typography sx={{ fontSize: { md: "1.5rem", xs: "1.1rem" } }}>
+                    {movieDetails.overview}
+                  </Typography>
                 </Stack>
                 {movieId !== null && serieId === null && (
                   <>
@@ -430,7 +468,10 @@ export default function FullMovies() {
                         <Divider
                           sx={{ backgroundColor: "rgba(255,255,255,.1)" }}
                         />
-                        <Typography variant="h5" textAlign={"center"}>
+                        <Typography
+                          sx={{ fontSize: { md: "1.5rem", xs: "1.1rem" } }}
+                          textAlign={"center"}
+                        >
                           <code>Production Companies</code>
                         </Typography>
                       </Stack>
@@ -457,7 +498,10 @@ export default function FullMovies() {
                           <Divider
                             sx={{ backgroundColor: "rgba(255,255,255,.1)" }}
                           />
-                          <Typography variant="h5" textAlign={"center"}>
+                          <Typography
+                            sx={{ fontSize: { md: "1.5rem", xs: "1.1rem" } }}
+                            textAlign={"center"}
+                          >
                             <code>Cast</code>
                           </Typography>
                         </Stack>
@@ -468,6 +512,7 @@ export default function FullMovies() {
                           top: "30%",
                           left: "0",
                           zIndex: "1",
+                          display: { md: "initial", xs: "none" },
                         }}
                         onClick={() => {
                           handleScrollLeft(castRef);
@@ -494,7 +539,11 @@ export default function FullMovies() {
                       </IconButton>
                       <Box
                         ref={castRef}
-                        sx={{ gap: "1rem", display: "flex", overflow: "auto" }}
+                        sx={{
+                          gap: { md: "1rem", xs: ".2rem" },
+                          display: "flex",
+                          overflow: "auto",
+                        }}
                       >
                         {movieCast &&
                           movieCast.map((p, index) => (
@@ -512,6 +561,7 @@ export default function FullMovies() {
                           top: "30%",
                           right: "0",
                           zIndex: "1",
+                          display: { md: "initial", xs: "none" },
                         }}
                         onClick={() => {
                           handleScrollRight(castRef);
@@ -544,7 +594,10 @@ export default function FullMovies() {
                           <Divider
                             sx={{ backgroundColor: "rgba(255,255,255,.1)" }}
                           />
-                          <Typography variant="h5" textAlign={"center"}>
+                          <Typography
+                            sx={{ fontSize: { md: "1.5rem", xs: "1.1rem" } }}
+                            textAlign={"center"}
+                          >
                             <code>Recommended Movies</code>
                           </Typography>
                         </Stack>
@@ -556,6 +609,7 @@ export default function FullMovies() {
                             top: "30%",
                             left: "0",
                             zIndex: "1",
+                            display: { md: "initial", xs: "none" },
                           }}
                           onClick={() => {
                             handleScrollLeft(divRef);
@@ -601,6 +655,7 @@ export default function FullMovies() {
                             top: "30%",
                             right: "0",
                             zIndex: "1",
+                            display: { md: "initial", xs: "none" },
                           }}
                           onClick={() => {
                             handleScrollRight(divRef);
@@ -637,7 +692,10 @@ export default function FullMovies() {
                       <Divider
                         sx={{ backgroundColor: "rgba(255,255,255,.1)" }}
                       />
-                      <Typography variant="h5" textAlign={"center"}>
+                      <Typography
+                        sx={{ fontSize: { md: "1.5rem", xs: "1.1rem" } }}
+                        textAlign={"center"}
+                      >
                         <code>Similar Movies</code>
                       </Typography>
                     </Stack>
@@ -649,6 +707,7 @@ export default function FullMovies() {
                         top: "30%",
                         left: "0",
                         zIndex: "1",
+                        display: { md: "initial", xs: "none" },
                       }}
                       onClick={() => {
                         handleScrollLeft(similarRef);
@@ -691,6 +750,7 @@ export default function FullMovies() {
                         top: "30%",
                         right: "0",
                         zIndex: "1",
+                        display: { md: "initial", xs: "none" },
                       }}
                       onClick={() => {
                         handleScrollRight(similarRef);
@@ -731,8 +791,14 @@ export default function FullMovies() {
                     }}
                     className="link"
                   >
-                    <Typography variant="h6" sx={{ color: "white" }}>
-                      ◀ Discover Movies
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontSize: { md: "1.2rem", xs: ".8rem" },
+                        color: "white",
+                      }}
+                    >
+                      ↢ Discover Movies
                     </Typography>
                   </Link>
                   <Link
@@ -747,8 +813,14 @@ export default function FullMovies() {
                     }}
                     className="link"
                   >
-                    <Typography variant="h6" sx={{ color: "white" }}>
-                      Watch Movie Videos ▶
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontSize: { md: "1.2rem", xs: ".8rem" },
+                        color: "white",
+                      }}
+                    >
+                      Watch Movie Videos ↣
                     </Typography>
                   </Link>
                 </Stack>

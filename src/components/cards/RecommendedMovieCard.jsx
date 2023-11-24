@@ -22,7 +22,9 @@ export default function RecommendedMovieCard({ movie }) {
             window.scrollTo(0, 0);
           }}
         >
-          <Box sx={{ width: "10rem", aspectRatio: "27/40" }}>
+          <Box
+            sx={{ width: { md: "10rem", xs: "7rem" }, aspectRatio: "27/40" }}
+          >
             <img
               alt=""
               src={
@@ -41,11 +43,12 @@ export default function RecommendedMovieCard({ movie }) {
           variant="body2"
           sx={{
             color: "white",
-            width: "10rem",
+            width: { md: "10rem", xs: "7rem" },
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             overflow: "hidden",
             textAlign: "center",
+            fontSize: { md: "1rem", xs: ".6rem" },
           }}
         >
           {movie.title}
@@ -54,11 +57,13 @@ export default function RecommendedMovieCard({ movie }) {
           variant="body2"
           sx={{
             color: "rgba(255,255,255,.5)",
-            width: "10rem",
+
+            width: { md: "10rem", xs: "7rem" },
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             overflow: "hidden",
             textAlign: "center",
+            fontSize: { md: "1rem", xs: ".6rem" },
           }}
         >
           <code>Popularity: {movie.popularity.toFixed(2)} %</code>

@@ -180,7 +180,7 @@ export default function CarouseItem({ movie }) {
                   />
                 </IconButton>
 
-                <Stack>
+                <Stack alignItems={"flex-start"}>
                   <Typography
                     variant="h3"
                     sx={{
@@ -190,25 +190,45 @@ export default function CarouseItem({ movie }) {
                         textOverflow: "ellipsis",
                       },
                       color: "white",
-                      fontSize: { md: "1.8rem", sm: "1.7rem", xs: "1.2rem" },
+                      fontSize: { md: "1.8rem", sm: "1.7rem", xs: "1rem" },
                     }}
                   >
                     {movie.title}
                   </Typography>
-                  <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                  <Stack
+                    direction={"row"}
+                    spacing={2}
+                    alignItems={"flex-start"}
+                  >
                     <Typography
                       variant="h5"
                       sx={{
                         color: "white",
                         opacity: ".7",
+                        display: { md: "initial", xs: "none" },
                         fontSize: { md: "2rem", xs: "1rem" },
                       }}
                     >
                       watch the trailer
                     </Typography>
+                    {/* <Typography
+                      variant="h5"
+                      sx={{
+                        color: "white",
+                        opacity: ".7",
+                        display: { xs: "initial", md: "none" },
+                        fontSize: { md: "2rem", xs: "1rem" },
+                      }}
+                    >
+                      watch
+                    </Typography> */}
                     <Typography
                       variant="h5"
-                      sx={{ color: "white", opacity: ".7" }}
+                      sx={{
+                        color: "white",
+                        opacity: ".7",
+                        fontSize: { md: "2rem", xs: ".7rem" },
+                      }}
                     >
                       {/* {targetMovie && targetMovie.runtime} */}
                       {/* {details && details.runtime}{" "}

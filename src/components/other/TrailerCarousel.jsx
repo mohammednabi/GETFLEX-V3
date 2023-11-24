@@ -38,7 +38,6 @@ export default function TrailerCarousel() {
       const childrenCount = carouselRef.current.children.length;
       if (amount > -childrenCount + 1) {
         setAmount((prev) => prev - 1);
-     
       }
     }
   }
@@ -46,9 +45,7 @@ export default function TrailerCarousel() {
   function translateLeft() {
     if (!isLoading) {
       if (amount < 0) {
-     
         setAmount((prev) => prev + 1);
-   
       }
     }
   }
@@ -70,17 +67,16 @@ export default function TrailerCarousel() {
 
   useEffect(() => {
     dispatch(getNowPlayingMovies(1));
-
   }, []);
 
-  useEffect(() => {
-    if (!isLoading && currentUrl === "http://localhost:3000/") {
-      autoPlay(playState);
-    }
-    return () => {
-      setPlayState(false);
-    };
-  }, [amount, isLoading, currentUrl, playState]);
+  // useEffect(() => {
+  //   if (!isLoading && currentUrl === "http://localhost:3000/") {
+  //     autoPlay(playState);
+  //   }
+  //   return () => {
+  //     setPlayState(false);
+  //   };
+  // }, [amount, isLoading, currentUrl, playState]);
 
   return (
     <>

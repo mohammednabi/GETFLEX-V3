@@ -13,8 +13,8 @@ export default function CastCard({ profile, name, character, job }) {
         {/* another style for these  */}
         <Box
           sx={{
-            width: "8rem",
-            height: "8rem",
+            width: { md: "8rem", xs: "5rem" },
+            height: { md: "8rem", xs: "5rem" },
             border: ".3rem #060015 solid",
             borderRadius: "5rem",
           }}
@@ -32,13 +32,13 @@ export default function CastCard({ profile, name, character, job }) {
         <Stack justifyContent={"center"} alignItems={"center"} sx={{}}>
           {name && (
             <Typography
-              variant="h6"
               sx={{
                 textAlign: "center",
-                width: "10rem",
+                width: { md: "10rem", xs: "7rem" },
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 overflow: "hidden",
+                fontSize: { md: "1.2rem", xs: ".8rem" },
               }}
             >
               {name}
@@ -46,21 +46,26 @@ export default function CastCard({ profile, name, character, job }) {
           )}
           {character && (
             <Typography
-              variant="body1"
               sx={{
                 color: "rgba(255,255,255,.7)",
                 textAlign: "center",
-                width: "10rem",
+                width: { md: "10rem", xs: "7rem" },
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 overflow: "hidden",
+                fontSize: { md: "1rem", xs: ".6rem" },
               }}
             >
               {character}
             </Typography>
           )}
           {job && (
-            <Typography variant="body1" sx={{ textAlign: "center" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontSize: { md: "1rem", xs: ".6rem" },
+              }}
+            >
               {job}
             </Typography>
           )}
