@@ -69,7 +69,7 @@ export default function Home() {
       >
         <TrailBox2 />
         <Typography
-          variant={isSmallScreen ? "h4" : "h3"}
+          variant={isSmallScreen ? "h5" : "h3"}
           sx={{
             color: theme.pallete.mygreen.main,
             textAlign: "center",

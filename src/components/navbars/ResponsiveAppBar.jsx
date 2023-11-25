@@ -89,13 +89,13 @@ function ResponsiveAppBar() {
                 display: {
                   md: "none",
                   xs: "initial",
-                  backgroundColor: "#46915c",
-                  color: "white",
-                  textTransform: "capitalize",
                 },
+                backgroundColor: "#09b05c",
+                color: "white",
+                textTransform: "capitalize",
               }}
             >
-              get the app
+              app ⇩
             </Button>
           </Link>
         </Box>

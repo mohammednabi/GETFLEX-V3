@@ -67,11 +67,13 @@ export default function FullMovies() {
 
   // scrolling
   const divRef = useRef();
+  const companyRef = useRef();
   const castRef = useRef();
   const similarRef = useRef();
   const [displayButtons, setDisplayButtons] = useState(true);
   const [castDisplayButtons, setCastDisplayButtons] = useState(true);
   const [similarDisplayButtons, setSimilarDisplayButtons] = useState(true);
+  const [companyDisplayButtons, setCompanyDisplayButtons] = useState(true);
 
   function handleScrollLeft(reference) {
     const scrollDistance = isMediumScreen ? 500 : 800; // Adjust the scroll distance as needed
@@ -187,12 +189,17 @@ export default function FullMovies() {
                         sx={{
                           fontSize: { md: "2.5rem", xs: "1.1rem" },
                           fontWeight: "bold",
+                          p: { md: 0, xs: 2 },
                         }}
                       >
                         {movieDetails.title}
                       </Typography>
 
-                      <Stack direction={"row"} spacing={5}>
+                      <Stack
+                        direction={"row"}
+                        spacing={5}
+                        sx={{ padding: ".5rem 1rem" }}
+                      >
                         <Typography
                           sx={{
                             fontSize: { md: "1.5rem", xs: ".9rem" },
@@ -476,21 +483,92 @@ export default function FullMovies() {
                         </Typography>
                       </Stack>
                     )}
-                    <Stack
-                      direction={"row"}
-                      alignItems={"center"}
-                      justifyContent={"space-evenly"}
-                    >
-                      {movieDetails &&
-                        movieDetails.production_companies.map(
-                          (p) =>
-                            p.logo_path && (
-                              <CompanyCard
-                                logo_path={p.logo_path}
-                                companyName={p.name}
-                              />
-                            )
-                        )}
+                    <Stack spacing={2} sx={{ position: "relative" }}>
+                      <IconButton
+                        sx={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          zIndex: "1",
+                          display: { md: "initial", xs: "none" },
+                        }}
+                        onClick={() => {
+                          handleScrollLeft(companyRef);
+                        }}
+                      >
+                        <ArrowBackIosNewIcon
+                          className="arrow"
+                          sx={{
+                            color: "white",
+                            fontSize: 50,
+                            backgroundColor: "rgb(0,0,0,.2) ",
+                            border: "solid 1px  #59ec85",
+                            height: "5rem",
+                            transition: ".5s",
+                            opacity: companyDisplayButtons ? "100%" : "0",
+                          }}
+                          onMouseOver={() => {
+                            setCompanyDisplayButtons(true);
+                          }}
+                          onMouseOut={() => {
+                            setCompanyDisplayButtons(false);
+                          }}
+                        />
+                      </IconButton>
+
+                      <Box
+                        ref={companyRef}
+                        sx={{
+                          gap: { md: "2rem", xs: ".2rem" },
+                          display: "flex",
+                          overflow: "auto",
+                          padding: "0 5rem",
+                        }}
+                      >
+                        {movieDetails &&
+                          movieDetails.production_companies.map(
+                            (p) =>
+                              p.logo_path && (
+                                <CompanyCard
+                                  logo_path={p.logo_path}
+                                  companyName={p.name}
+                                />
+                              )
+                          )}
+                      </Box>
+
+                      <IconButton
+                        sx={{
+                          position: "absolute",
+                          top: 0,
+                          right: 0,
+                          zIndex: "1",
+                          display: { md: "initial", xs: "none" },
+                        }}
+                        onClick={() => {
+                          handleScrollRight(companyRef);
+                        }}
+                      >
+                        <ArrowBackIosNewIcon
+                          className="arrow"
+                          sx={{
+                            color: "white",
+                            fontSize: 50,
+                            transform: "rotate(180deg)",
+                            backgroundColor: "rgb(0,0,0,.2) ",
+                            border: "solid 1px  #59ec85",
+                            height: "5rem",
+                            transition: ".5s",
+                            opacity: companyDisplayButtons ? "100%" : "0",
+                          }}
+                          onMouseOver={() => {
+                            setCompanyDisplayButtons(true);
+                          }}
+                          onMouseOut={() => {
+                            setCompanyDisplayButtons(false);
+                          }}
+                        />
+                      </IconButton>
                     </Stack>
                     <Stack spacing={2} sx={{ position: "relative" }}>
                       {movieCast && movieCast.length > 0 && (
@@ -725,10 +803,10 @@ export default function FullMovies() {
                           opacity: similarDisplayButtons ? "100%" : "0",
                         }}
                         onMouseOver={() => {
-                          setDisplayButtons(true);
+                          setSimilarDisplayButtons(true);
                         }}
                         onMouseOut={() => {
-                          setDisplayButtons(false);
+                          setSimilarDisplayButtons(false);
                         }}
                       />
                     </IconButton>
@@ -769,10 +847,10 @@ export default function FullMovies() {
                           opacity: similarDisplayButtons ? "100%" : "0",
                         }}
                         onMouseOver={() => {
-                          setDisplayButtons(true);
+                          setSimilarDisplayButtons(true);
                         }}
                         onMouseOut={() => {
-                          setDisplayButtons(false);
+                          setSimilarDisplayButtons(false);
                         }}
                       />
                     </IconButton>

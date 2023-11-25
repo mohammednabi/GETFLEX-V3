@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { Link } from "react-router-dom";
 
-export default function LastTrailerCard({ movie ,page}) {
+export default function LastTrailerCard({ movie, page }) {
   const overlayRef = useRef();
   const buttonRef = useRef();
 
@@ -14,21 +14,20 @@ export default function LastTrailerCard({ movie ,page}) {
         to={`/watchsomevideos?${"watchmovie"}=${movie.id}&&page=${page}`}
         style={{
           textDecoration: "none",
-
-          display: "-webkit-box",
-          WebkitBoxOrient: "vertical",
-          WebkitLineClamp: 2,
-          overflow: "hidden",
-          textOverflow: "ellipsis",
         }}
         onClick={() => {
           window.scrollTo(0, 0);
         }}
       >
-        <Stack justifyContent={"center"} alignItems={"center"} spacing={2}>
+        <Stack
+          justifyContent={"center"}
+          alignItems={"center"}
+          spacing={2}
+          sx={{ width: "auto", aspectRatio: "16/9" }}
+        >
           <Box
             sx={{
-              maxWidth: { xs: "25rem" },
+              maxWidth: { md: "25rem", xs: "15rem" },
               aspectRatio: "16/9",
               background: "black",
               overflow: "hidden",
@@ -80,6 +79,7 @@ export default function LastTrailerCard({ movie ,page}) {
                 position: "absolute",
                 left: ".8rem",
                 bottom: ".8rem",
+                fontSize: { md: ".9rem", xs: ".7rem" },
               }}
             >
               {movie.release_date}
@@ -124,10 +124,23 @@ export default function LastTrailerCard({ movie ,page}) {
                 buttonRef.current.style.color = "white";
               }}
             >
-              <PlayCircleOutlineIcon sx={{ fontSize: "4rem" }} />
+              <PlayCircleOutlineIcon
+                sx={{ fontSize: { md: "4rem", xs: "2rem" } }}
+              />
             </IconButton>
           </Box>
-          <Typography variant="h5" sx={{ color: "white", textAlign: "center" }}>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "white",
+              textAlign: "center",
+              fontSize: { md: "1.5rem", xs: "1rem" },
+              width: { md: "20rem", xs: "15rem" },
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+            }}
+          >
             {movie.title}
           </Typography>
         </Stack>

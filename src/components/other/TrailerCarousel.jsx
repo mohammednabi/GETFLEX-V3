@@ -15,7 +15,8 @@ export default function TrailerCarousel() {
   const carouselRef = useRef();
   const currentUrl = window.location.href;
   const [amount, setAmount] = useState(0);
-  // const [playState, setPlayState] = useState(true);
+  const [playState, setPlayState] = useState(true);
+  const [clicked, setClicked] = useState(false);
 
   const nowPlayingMovies = useSelector((state) => {
     return state.nowPlayingMovies.movies;
@@ -28,7 +29,7 @@ export default function TrailerCarousel() {
   const dispatch = useDispatch();
 
   function translateRight() {
-    if (!isLoading && currentUrl === "http://localhost:3000/") {
+    if (!isLoading) {
       const childrenCount = carouselRef.current.children.length;
       if (amount > -childrenCount + 1) {
         setAmount((prev) => prev - 1);
@@ -44,33 +45,34 @@ export default function TrailerCarousel() {
     }
   }
 
-  // function autoPlay(play) {
-  //   if (!isLoading) {
-  //     const childrenCount = carouselRef.current.children.length;
-  //     if (play) {
-  //       setTimeout(() => {
-  //         if (amount > -childrenCount + 1) {
-  //           translateRight();
-  //         } else {
-  //           setAmount(0);
-  //         }
-  //       }, 4000);
-  //     }
-  //   }
-  // }
+  function autoPlay(play) {
+    if (!isLoading) {
+      const childrenCount = carouselRef.current.children.length;
+      if (play) {
+        setTimeout(() => {
+          if (amount > -childrenCount + 1) {
+            translateRight();
+          } else {
+            setAmount(0);
+          }
+        }, 4000);
+      }
+    }
+  }
 
   useEffect(() => {
     dispatch(getNowPlayingMovies(1));
-  }, []);
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (!isLoading && currentUrl === "http://localhost:3000/") {
-  //     autoPlay(playState);
-  //   }
-  //   return () => {
-  //     setPlayState(false);
-  //   };
-  // }, [amount, isLoading, currentUrl, playState]);
+  useEffect(() => {
+    if (!clicked && !isLoading && currentUrl.endsWith("/")) {
+      setPlayState(true);
+      autoPlay(playState);
+    }
+    return () => {
+      setPlayState(false);
+    };
+  }, [amount, isLoading, playState, currentUrl]);
 
   return (
     <>
@@ -93,6 +95,7 @@ export default function TrailerCarousel() {
           onClick={() => {
             translateLeft();
             // setPlayState(false);
+            setClicked(true);
           }}
         >
           <ArrowBackIosNewIcon
@@ -115,6 +118,7 @@ export default function TrailerCarousel() {
           onClick={() => {
             translateRight();
             // setPlayState(false);
+            setClicked(true);
           }}
         >
           <ArrowBackIosNewIcon

@@ -294,7 +294,13 @@ export default function WatchSomeVideos() {
                     color: "white",
                   }}
                 >
-                  <Typography variant="h5" sx={{ color: "white" }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontSize: { md: "1.2rem", xs: "1rem" },
+                      color: "white",
+                    }}
+                  >
                     {movieDetails && movieDetails.title}
                   </Typography>
                 </Link>
@@ -314,7 +320,10 @@ export default function WatchSomeVideos() {
                         <Chip
                           label={g.name}
                           variant="outlined"
-                          sx={{ color: "white" }}
+                          sx={{
+                            color: "white",
+                            fontSize: { md: ".8rem", xs: ".6rem" },
+                          }}
                           className="chipy"
                         />
                       </Link>
@@ -322,17 +331,30 @@ export default function WatchSomeVideos() {
                 </Stack>
               </Stack>
             </Stack>
-            <Divider sx={{ backgroundColor: "rgba(255,255,255,.5)" }} />
+            <Divider
+              sx={{
+                backgroundColor: "rgba(255,255,255,.1)",
+                margin: "1rem 0",
+              }}
+            />
             <Stack spacing={2}>
               <Typography
                 variant="h4"
-                sx={{ color: "white", textAlign: "center" }}
+                sx={{
+                  color: "white",
+                  textAlign: "center",
+                  fontSize: { md: "1.7rem", xs: "1.5rem" },
+                }}
               >
                 <code>Watch Videos</code>
               </Typography>
               <Typography
                 variant="h5"
-                sx={{ color: "white", textAlign: "center" }}
+                sx={{
+                  color: "white",
+                  textAlign: "center",
+                  fontSize: { md: "1.5rem", xs: "1.3rem" },
+                }}
               >
                 ‹‹
                 <code>
@@ -346,7 +368,11 @@ export default function WatchSomeVideos() {
               </Typography>
               <Typography
                 variant="h5"
-                sx={{ color: "#50de7b", textAlign: "center" }}
+                sx={{
+                  color: "#50de7b",
+                  textAlign: "center",
+                  fontSize: { md: "1.5rem", xs: "1.3rem" },
+                }}
               >
                 {" "}
                 {movieVideos && movieAllVideos
@@ -356,19 +382,34 @@ export default function WatchSomeVideos() {
                   : ""}
               </Typography>{" "}
               <Link to={"/latesttrailers"} className="link">
-                <Typography variant="h6" sx={{ color: "white" }}>
-                  ◀ Back To Trailers Page
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontSize: { md: "1.3rem", xs: "1.1rem" },
+                  }}
+                >
+                  ↤ Back To Trailers Page
                 </Typography>{" "}
               </Link>
             </Stack>
           </Grid>
         </Grid>
-        <Stack sx={{ position: "relative", pb: 8 }} spacing={4}>
-          <Typography variant="h4" sx={{ color: "white" }}>
+        <Stack sx={{ position: "relative", pb: { md: 8, xs: 3 } }} spacing={4}>
+          <Typography
+            variant="h4"
+            sx={{ color: "white", fontSize: { md: "1.7rem", xs: "1.5rem" } }}
+          >
             <code>Trending Trailers</code>
           </Typography>
           <IconButton
-            sx={{ position: "absolute", top: "30%", left: "0", zIndex: "1" }}
+            sx={{
+              position: "absolute",
+              top: "30%",
+              left: "0",
+              zIndex: "1",
+              display: { md: "initial", xs: "none" },
+            }}
             onClick={() => {
               handleScrollLeft(divRef);
             }}
@@ -398,7 +439,7 @@ export default function WatchSomeVideos() {
               overflow: "auto",
               position: "relative",
               display: "flex",
-              gap: "1rem",
+              gap: { md: "1rem", xs: ".5rem" },
               // alignItems: "center",
             }}
           >
@@ -412,7 +453,7 @@ export default function WatchSomeVideos() {
                     transition={{ duration: 2.5, type: "spring" }}
                     exit={{ opacity: 0 }}
                   >
-                    <Box sx={{ width: "20rem", aspectRatio: "16/9" }}>
+                    <Box sx={{ aspectRatio: "16/9" }}>
                       <LastTrailerCard movie={movie} key={movie.id} />{" "}
                     </Box>
                   </motion.div>
@@ -423,7 +464,13 @@ export default function WatchSomeVideos() {
             )}
           </Box>
           <IconButton
-            sx={{ position: "absolute", top: "30%", right: "0", zIndex: "1" }}
+            sx={{
+              position: "absolute",
+              top: "30%",
+              right: "0",
+              zIndex: "1",
+              display: { md: "initial", xs: "none" },
+            }}
             onClick={() => {
               handleScrollRight(divRef);
             }}
@@ -453,7 +500,13 @@ export default function WatchSomeVideos() {
           {recommendations && recommendations.length > 0 && (
             <Stack spacing={2}>
               <Divider sx={{ backgroundColor: "rgba(255,255,255,.1)" }} />
-              <Typography variant="h4" sx={{ color: "white" }}>
+              <Typography
+                variant="h4"
+                sx={{
+                  color: "white",
+                  fontSize: { md: "1.7rem", xs: "1.5rem" },
+                }}
+              >
                 <code>Recommended Movies</code>
               </Typography>
             </Stack>
@@ -465,6 +518,7 @@ export default function WatchSomeVideos() {
                 top: "30%",
                 left: "0",
                 zIndex: "1",
+                display: { md: "initial", xs: "none" },
               }}
               onClick={() => {
                 handleScrollLeft(recommendationsRef);
@@ -507,6 +561,7 @@ export default function WatchSomeVideos() {
                 top: "30%",
                 right: "0",
                 zIndex: "1",
+                display: { md: "initial", xs: "none" },
               }}
               onClick={() => {
                 handleScrollRight(recommendationsRef);

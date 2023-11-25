@@ -58,13 +58,13 @@ export default function MainFotter() {
             /> */}
             <FacebookIcon
               className="icon"
-              sx={{ fontSize: "2.5rem", color: "white" }}
+              sx={{ fontSize: { md: "2.5rem", xs: "2rem" }, color: "white" }}
             />
           </Link>
           <Link to={githubLink} target="blank">
             <GitHubIcon
               className="icon"
-              sx={{ fontSize: "2.5rem", color: "white" }}
+              sx={{ fontSize: { md: "2.5rem", xs: "2rem" }, color: "white" }}
             />
           </Link>
           {/* <IconButton>
@@ -73,7 +73,7 @@ export default function MainFotter() {
           <Link to={linkedInLink} target="blank">
             <LinkedInIcon
               className="icon"
-              sx={{ fontSize: "2.5rem", color: "white" }}
+              sx={{ fontSize: { md: "2.5rem", xs: "2rem" }, color: "white" }}
             />
           </Link>
         </Box>
@@ -91,9 +91,14 @@ export default function MainFotter() {
           <Link className="link footer-link">
             <Stack direction={"row"} spacing={0.2} alignItems={"center"}>
               <Link to={"/getflexapp"} className="link">
-                <Typography variant="h6">get GETFLEX App</Typography>
+                <Typography
+                  variant="h6"
+                  sx={{ fontSize: { md: "1rem", xs: ".9rem" } }}
+                >
+                  get GETFLEX App
+                </Typography>
               </Link>
-              <OpenInNewIcon sx={{ fontSize: "1.5rem" }} />
+              <OpenInNewIcon sx={{ fontSize: { md: "1.5rem", xs: "1rem" } }} />
             </Stack>
           </Link>
           <Link to={"/help"} className="link">
@@ -117,12 +122,19 @@ export default function MainFotter() {
             flexWrap: "wrap",
           }}
         >
-          <Typography variant="h6">createrd by </Typography>
-          <img
-            src="/imgs/nebo offical white logo edited.png"
-            alt=""
-            style={{ width: "8rem" }}
-          />
+          <Typography
+            variant="h6"
+            sx={{ fontSize: { md: "1rem", xs: ".8rem" } }}
+          >
+            createrd by{" "}
+          </Typography>
+          <Box sx={{ width: { md: "8rem", xs: "6rem" }, height: "auto" }}>
+            <img
+              src="/imgs/nebo offical white logo edited.png"
+              alt=""
+              style={{ width: "100%", height: "100%" }}
+            />
+          </Box>
         </Box>
         <Box
           sx={{

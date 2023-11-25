@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  IconButton,
-  Typography,
-  Drawer,
-  Stack,
-  Paper,
-} from "@mui/material";
+import { Box, IconButton, Typography, Drawer, Stack } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -129,9 +122,7 @@ export default function NavbarMenu() {
                     onClick={handleOpen}
                     style={{ textDecoration: "none", color: "white" }}
                   >
-                    <Typography variant="h6">
-                     dicover popular movies
-                    </Typography>
+                    <Typography variant="h6">dicover popular movies</Typography>
                   </Link>
                 </Stack>
               </AccordionDetails>

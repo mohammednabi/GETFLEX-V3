@@ -60,13 +60,13 @@ export default function SmallMoviesSection({ caption, movies, backColor }) {
       >
         <Box
           sx={{
-            height: "3rem",
+            height: { md: "3rem", xs: "2rem" },
             width: ".2rem",
             backgroundColor: "#59ec85",
           }}
         ></Box>
         <Typography
-          variant="h4"
+          variant={isSmallScreen ? "h6" : "h4"}
           sx={{
             color: "rgba(255,255,255,.9)",
             textTransform: "capitalize",
