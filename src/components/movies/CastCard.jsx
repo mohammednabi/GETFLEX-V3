@@ -27,6 +27,7 @@ export default function CastCard({ profile, name, character, job }) {
                 ? `https://image.tmdb.org/t/p/original${profile}`
                 : "https://images.generation-msx.nl/company/0388910c.png"
             }
+            loading="lazy"
           />
         </Box>
         <Stack justifyContent={"center"} alignItems={"center"} sx={{}}>

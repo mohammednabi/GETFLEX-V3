@@ -51,6 +51,7 @@ function ResponsiveAppBar() {
                 src="/imgs/GITFLEX LOGO.png"
                 style={{ width: "100%" }}
                 alt=""
+                loading="lazy"
               />
             </Box>
           </Link>

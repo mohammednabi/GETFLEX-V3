@@ -269,6 +269,7 @@ export default function WatchSomeVideos() {
                     }`}
                     alt=""
                     style={{ width: "100%" }}
+                    loading="lazy"
                   />
                   {movieDetails && movieDetails.adult && (
                     <img
@@ -280,6 +281,7 @@ export default function WatchSomeVideos() {
                         right: "0",
                         width: "2rem",
                       }}
+                      loading="lazy"
                     />
                   )}
                 </Box>

@@ -80,6 +80,7 @@ export default function NavbarMenu() {
                 src="/imgs/GITFLEX LOGO.png"
                 alt=""
                 style={{ width: "10rem" }}
+                loading="lazy"
               />
             </Link>
             <IconButton onClick={handleOpen} color="secondary">

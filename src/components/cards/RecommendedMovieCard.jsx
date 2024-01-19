@@ -36,6 +36,7 @@ export default function RecommendedMovieCard({ movie }) {
                 width: "100%",
                 height: "100%",
               }}
+              loading="lazy"
             />
           </Box>
         </Link>

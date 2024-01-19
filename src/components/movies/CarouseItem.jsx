@@ -169,6 +169,7 @@ export default function CarouseItem({ movie }) {
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                   }}
+                  loading="lazy"
                 />
               </Box>
               <Stack direction={"row"} alignItems={"center"}>

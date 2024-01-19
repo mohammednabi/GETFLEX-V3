@@ -25,6 +25,7 @@ export default function SearchedMovie({ movie, cancel }) {
                 alt=""
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 style={{ width: "100%" }}
+                loading="lazy"
               />
             </Box>
           </Grid>

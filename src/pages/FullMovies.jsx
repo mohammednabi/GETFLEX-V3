@@ -267,6 +267,7 @@ export default function FullMovies() {
                             style={{ width: "150%", height: "150%" }}
                             alt=""
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/NOTRATED.svg/2200px-NOTRATED.svg.png"
+                            loading="lazy"
                           />
                         )}
                       </Box>
@@ -318,6 +319,7 @@ export default function FullMovies() {
                             }}
                             alt=""
                             src="https://moesrealm.com/MC/images/Rating%20MPAA%20Not%20Rated%20Small.png"
+                            loading="lazy"
                           />
                         )}
                       </Box>
@@ -326,6 +328,7 @@ export default function FullMovies() {
                           src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
                           alt=""
                           style={{ width: "100%" }}
+                          loading="lazy"
                         />
                       ) : (
                         <Skeleton
@@ -351,6 +354,7 @@ export default function FullMovies() {
                             alt=""
                             src="https://png.monster/wp-content/uploads/2021/06/png.monster-12.png"
                             style={{ width: "100%" }}
+                            loading="lazy"
                           />
                         </Box>
                       )}
@@ -382,6 +386,7 @@ export default function FullMovies() {
                       src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
                       alt=""
                       style={{ width: "100%", height: "100%" }}
+                      loading="lazy"
                     />
                   ) : (
                     <Skeleton
@@ -403,6 +408,7 @@ export default function FullMovies() {
                         right: "0",
                         width: "4rem",
                       }}
+                      loading="lazy"
                     />
                   )}
                   )

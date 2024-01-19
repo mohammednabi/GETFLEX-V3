@@ -16,7 +16,7 @@ export default function TrailerBox() {
   const myMovies = React.useContext(MoviesContext);
 
   const filteredMovies = React.useMemo(() => {
-    if ( myMovies.length !== 0) {
+    if (myMovies.length !== 0) {
       return myMovies.filter((movie) => {
         return movie.rank <= 10;
       });
@@ -29,9 +29,7 @@ export default function TrailerBox() {
     return [...filteredMovies].sort((a, b) => a.rank - b.rank);
   }, [filteredMovies]);
 
-  React.useEffect(() => {
-  
-  }, [filteredMovies]);
+  React.useEffect(() => {}, [filteredMovies]);
 
   return (
     <>
@@ -66,6 +64,7 @@ export default function TrailerBox() {
               // height: "100%",
               filter: "blur(5px)",
             }}
+            loading="lazy"
           />
         </Box>
         <MyCarousel movies={filteredMovies2} />

@@ -111,6 +111,7 @@ export default function MyCarousel({ movies }) {
                   src={landscapePosters[index]}
                   alt=""
                   style={{ height: "100%", aspectRatio: "16/9" }}
+                  loading="lazy"
                 />
                 <PosterCard movie={movie} />
               </div>

@@ -131,6 +131,7 @@ export default function SmallMovie({ movie }) {
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt=""
               style={{ height: "auto", width: "100%" }}
+              loading="lazy"
             />
           </Link>
 
@@ -147,6 +148,7 @@ export default function SmallMovie({ movie }) {
             <img
               src="/imgs/8084126_1155.svg"
               alt=""
+              loading="lazy"
               style={{
                 padding: "0",
                 position: "absolute",

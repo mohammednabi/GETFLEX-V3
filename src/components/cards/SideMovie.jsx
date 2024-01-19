@@ -1,20 +1,25 @@
-import React from 'react'
-import { Box, Divider, IconButton, Stack, Typography } from '@mui/material';
+import React from "react";
+import { Box, Divider, IconButton, Stack, Typography } from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import { useTheme } from '@emotion/react';
+import { useTheme } from "@emotion/react";
 
-
-export default function SideMovie({trailer}) {
-
-    const theme =useTheme()
+export default function SideMovie({ trailer }) {
+  const theme = useTheme();
   return (
     <>
-      <Box sx={{ padding:2 ,margin: 1 ,backgroundColor:theme.pallete.primary.second}}>
+      <Box
+        sx={{
+          padding: 2,
+          margin: 1,
+          backgroundColor: theme.pallete.primary.second,
+        }}
+      >
         <Stack direction={"row"} spacing={2}>
           <img
             src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg"
             alt=""
             style={{ width: "5rem" }}
+            loading="lazy"
           />
           <Stack spacing={2} sx={{ color: "white", justifyContent: "center" }}>
             <Typography
@@ -24,8 +29,8 @@ export default function SideMovie({trailer}) {
               }}
             >
               the dark Knight
-                      </Typography>
-                     
+            </Typography>
+
             <a href={trailer} target="blank">
               <IconButton className="arrow" sx={{ color: "white" }}>
                 <PlayCircleOutlineIcon

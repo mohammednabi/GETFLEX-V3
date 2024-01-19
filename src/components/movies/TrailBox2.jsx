@@ -51,6 +51,7 @@ export default function TrailBox2() {
                 transform: "rotatez(-45deg) ",
                 filter: "contrast(85%)",
               }}
+              loading="lazy"
             />
           </Grid>
           <Grid
@@ -74,6 +75,7 @@ export default function TrailBox2() {
                 transform: "rotatey(180deg) translatex(42%) rotatez(-45deg)",
                 filter: "contrast(85%)",
               }}
+              loading="lazy"
             />
           </Grid>
         </Grid>

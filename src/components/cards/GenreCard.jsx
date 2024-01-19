@@ -30,6 +30,7 @@ export default function GenreCard({ movie, type }) {
           >
             <img
               alt=""
+              loading="lazy"
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               style={{ width: "100%" }}
             />

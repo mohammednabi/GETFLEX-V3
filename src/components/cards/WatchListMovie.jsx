@@ -26,7 +26,6 @@ export default function WatchListMovie({ movie, deleteMovie }) {
       .get(url, options)
       .then((res) => {
         setDetails(res.data);
-      
       })
       .catch((err) => console.log(err));
   }
@@ -65,6 +64,7 @@ export default function WatchListMovie({ movie, deleteMovie }) {
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt=""
                 style={{ width: "100%" }}
+                loading="lazy"
               />
             </Link>
             <Typography

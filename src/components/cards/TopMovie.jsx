@@ -26,22 +26,22 @@ export default function TopMovie({ movie, type, index }) {
             </Typography>
           </Grid>
           <Grid md={1.5} xs={4}>
-             <Link
-                to={
-                  type === "serie"
-                    ? `/movie?watchserie=${movie.id}`
-                    : `/movie?watchmovie=${movie.id}`
-                }
-               
-              >
-            <Box sx={{ width: { md: "5rem", xs: "4rem" } }}>
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                alt=""
-                style={{ width: "100%", border: "1px solid #59ec85" }}
-              />
+            <Link
+              to={
+                type === "serie"
+                  ? `/movie?watchserie=${movie.id}`
+                  : `/movie?watchmovie=${movie.id}`
+              }
+            >
+              <Box sx={{ width: { md: "5rem", xs: "4rem" } }}>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  alt=""
+                  style={{ width: "100%", border: "1px solid #59ec85" }}
+                  loading="lazy"
+                />
               </Box>
-              </Link>
+            </Link>
           </Grid>
           <Grid md={7} xs={7}>
             <Stack spacing={0.5} sx={{ color: "white" }}>

@@ -49,6 +49,7 @@ export default function LastTrailerCard({ movie, page }) {
                 //   objectFit: "cover",
                 background: "rgba(255,255,255,.2)",
               }}
+              loading="lazy"
             />
             {/* <Box
               sx={{

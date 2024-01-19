@@ -15,7 +15,12 @@ export default function GetFlexApp() {
       >
         <Stack spacing={4} justifyContent={"center"} alignItems={"center"}>
           <Link to={"/"}>
-            <img alt="" src="/imgs/G LOGO.png " className="G-logo" />
+            <img
+              alt=""
+              src="/imgs/G LOGO.png "
+              className="G-logo"
+              loading="lazy"
+            />
           </Link>
           <Stack
             direction={"row"}
@@ -38,6 +43,7 @@ export default function GetFlexApp() {
               alt=""
               src="https://cdn-icons-png.flaticon.com/512/732/732208.png"
               style={{ width: "4rem" }}
+              loading="lazy"
             />
             <Typography
               sx={{
@@ -52,6 +58,7 @@ export default function GetFlexApp() {
               alt=""
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/2048px-App_Store_%28iOS%29.svg.png"
               style={{ width: "4rem" }}
+              loading="lazy"
             />
           </Stack>
         </Stack>

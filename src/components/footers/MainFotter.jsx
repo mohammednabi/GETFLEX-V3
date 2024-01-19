@@ -133,6 +133,7 @@ export default function MainFotter() {
               src="/imgs/nebo offical white logo edited.png"
               alt=""
               style={{ width: "100%", height: "100%" }}
+              loading="lazy"
             />
           </Box>
         </Box>
